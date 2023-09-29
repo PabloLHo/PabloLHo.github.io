@@ -575,8 +575,8 @@ ul.marquee li {
 }
 
 .about-section .aboutInfo-contanier .about-cover {
-    background: linear-gradient(rgba(43, 48, 59, 0.5), rgba(43, 48, 59, 0.5)), url(../images/cover.jpg) no-repeat;
-    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.5), rgba(43, 48, 59, 0.5)), url(../images/cover.jpg) no-repeat;
+    background: linear-gradient(rgba(43, 48, 59, 0.5), rgba(43, 48, 59, 0.5)), no-repeat;
+    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.5), rgba(43, 48, 59, 0.5)), no-repeat;
     background-size: 100%;
     height: 265px;
     position: relative;
@@ -755,7 +755,6 @@ ul.marquee li {
     background-color: #2b303b;
     background-repeat: no-repeat;
     background-size: 32px 64px;
-    background-image: url("../images/gmaps/cd-icon-controller.svg");
 }
 
 .no-touch #cd-zoom-in:hover,
@@ -1394,7 +1393,7 @@ ul.marquee li {
     font-size: 13px;
     line-height: 24px;
     text-align: justify;
-    position: relative;*/
+    position: relative;
     color: #606777;
     display: inline-block;
 }
@@ -1403,7 +1402,7 @@ ul.marquee li {
     font-size: 12px;
     line-height: 24px;
     text-align: justify;
-    position: relative;*/
+    position: relative;
     color: #606777;
     display: inline-block;
 	font-style: italic;
@@ -1659,26 +1658,18 @@ ul.marquee li {
 
 .team1 {
     z-index: 2;
-    background: linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team/team1.jpg);
-    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team/team1.jpg);
 }
 
 .team2 {
     z-index: 2;
-    background: linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team/team2.jpg);
-    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team/team2.jpg);
 }
 
 .team3 {
     z-index: 2;
-    background: linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team//team3.jpg);
-    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team/team3.jpg);
 }
 
 .team4 {
     z-index: 2;
-    background: linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team/team4.jpg);
-    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.8), rgba(43, 48, 59, 0.8)), url(../images/team/team4.jpg);
 }
 
 .back {
@@ -2804,15 +2795,11 @@ aside .jspVerticalBar {
 
 .mfp-zoom-out-cur,
 .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
-    cursor: -moz-zoom-out;
-    cursor: -webkit-zoom-out;
     cursor: zoom-out;
 }
 
 .mfp-zoom {
     cursor: pointer;
-    cursor: -webkit-zoom-in;
-    cursor: -moz-zoom-in;
     cursor: zoom-in;
 }
 

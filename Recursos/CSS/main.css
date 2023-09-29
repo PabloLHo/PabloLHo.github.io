@@ -335,12 +335,12 @@ a.hs-totop-link {
 .hs-menu {
     position: fixed;
     z-index: 999;
-    color: #FFFFFF;
+    color: #000000;
     width: 260px;
     left: 50px;
     top: 0px;
     height: 100%;
-    background: #24C9C3;
+    background: #CCD7ED;
 }
 
 .hs-menu .jspDrag {
@@ -449,7 +449,7 @@ a.hs-totop-link {
     height: 40px;
     line-height: 40px;
     text-align: center;
-    background: #13E1DA;
+    background: #FFFFFF;
     color: #788195;
     position: relative;
     left: 0;
@@ -466,7 +466,6 @@ a.hs-totop-link {
     display: block;
     border-top: 1px solid #565c6b;
     height: 0;
-    margin: 25px 0;
     margin-left: auto;
     margin-right: auto;
     width: 70px;
@@ -480,7 +479,7 @@ a.hs-totop-link {
     width: 100%;
     line-height: 44px;
     text-align: center;
-    background: #13E1DA;
+    background: #ACBEE2;
 }
 
 .hs-menu .aside-footer a {
@@ -491,7 +490,7 @@ a.hs-totop-link {
     text-align: center;
     font-size: 14px;
     margin: 0 2px;
-    background: #13E1DA;
+    background: #FFFFFF;
     display: inline-block;
     -webkit-transition: all .3s ease-in;
     -moz-transition: all .3s ease-in;
@@ -509,7 +508,7 @@ a.hs-totop-link {
     display: block;
     top: 0;
     position: fixed;
-    background: #13E1DA;
+    background: #ACBEE2;
     z-index: 999;
     padding: 8px 0;
     text-align: center;
