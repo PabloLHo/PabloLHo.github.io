@@ -1,0 +1,349 @@
+/** Bio logos **/
+#bio-logos {
+    margin-top: 5%;
+    width: 100%;
+    height: 5em;
+    text-align: center;
+}
+
+#bio-logos img {
+    margin-left: auto;
+    margin-right: auto;
+    height: 90%;
+}
+
+/** Overrides **/
+
+.menu_reg {
+  font-weight: lighter;
+}
+
+.serv-wrap {
+  width: 100%;
+}
+
+.contact-media {
+  margin-top: 5%;
+  font-size: 40px;
+}
+
+.contact-background {
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+}
+
+.service-section {
+  position: relative;
+}
+
+.service-section h3 {
+  color: rgb(230, 230, 230);
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  bottom: 70px;
+  right: 24px;
+  position: absolute;
+}
+
+.service-section span {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  font-size: 25px;
+  margin: 20px 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  line-height: 60px;
+  color: rgba(255, 255, 255, 0.77);
+  background: rgba(248, 249, 251, 0.6);
+  text-align: center;
+}
+
+.timeline-header {
+  max-width: 400px;
+}
+
+/** Fellowship images **/
+.resume-image {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}
+
+/** Publications **/
+.publication-image-container {
+  height: 68px;
+  width: 100%;
+}
+
+.publication-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/** Maps **/
+#mapbox-map {
+  height: 100%;
+  width: 100%;
+}
+
+address, .back-cover {
+  z-index: 100;
+}
+
+.mapbox-marker {
+  background-image: url(../images/maps/mapbox-marker.png);
+  background-size: cover;
+  width: 25px;
+  height: 37px;
+  cursor: pointer;
+}
+
+/** Email **/
+.email-receipt {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+  background-color: #CCD7ED;
+  color: white;
+  height: 40px;
+  padding-left: 15px;
+  vertical-align: middle;
+  width: 100%;
+
+  opacity: .0;
+  visibility: hidden;
+}
+
+/** Projects **/
+.project-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.project-wrap-img {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: no-repeat;
+  background-size: contain;
+}
+
+.project-wrap-p {
+  padding: 16px 20px 16px 20px;
+  width: 70%;
+}
+
+/** Subjects **/
+.subject-point-container {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 8px;
+}
+
+/** Works **/
+.project-content {
+  padding: 5vw;
+}
+
+.project-description {
+  text-align: left;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+  vertical-align: top;
+}
+
+.project-description p {
+  text-align: justify;
+  width: 100%;
+}
+
+.project-title {
+  font-weight: bold;
+  line-height: 21px;
+  margin-bottom: 30px;
+  font-size: 50px;
+  font-family: Titillium Web;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.project-main-image {
+  float: left;
+  margin-right: 3%;
+  width: 40%;
+}
+
+/** Image Gallery **/
+.gallery-title {
+  font-weight: bold;
+  line-height: 21px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-family: Titillium Web;
+  text-transform: uppercase;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.gallery-title-alert {
+  position: relative;
+  top: -3px;
+  margin-left: 5px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 15px;
+}
+
+.gallery_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-img-wrapper {
+  border-width: 2px;
+  border-color: gray;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: white;
+}
+
+.fading-line {
+  height: 1px;
+  background-color: #E6E6E6;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 4%;
+  background-image: linear-gradient(left , #f1f2f5 2%, #E6E6E6 50%, #f1f2f5 98%);
+  background-image: -o-linear-gradient(left , #f1f2f5 2%, #E6E6E6 50%, #f1f2f5 98%);
+  background-image: -moz-linear-gradient(left , #f1f2f5 2%, #E6E6E6 50%, #f1f2f5 98%);
+  background-image: -webkit-linear-gradient(left , #f1f2f5 2%, #E6E6E6 50%, #f1f2f5 98%);
+  background-image: -ms-linear-gradient(left , #f1f2f5 2%, #E6E6E6 50%, #f1f2f5 98%);
+  background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, #f1f2f5), color-stop(0.5, gray), color-stop(0.98, #f1f2f5) );
+}
+
+/** Image Transformation: https://w3bits.com/css-image-hover-zoom/ **/
+.img-hover-zoom, .img-hover-zoom--quick-zoom, .img-hover-zoom--slowmo {
+  overflow: hidden;
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+
+/* Quick-zoom Container */
+.img-hover-zoom--quick-zoom img {
+  transform-origin: 0 0;
+  transition: transform .25s, visibility .25s ease-in;
+}
+
+/* The Transformation */
+.img-hover-zoom--quick-zoom:hover img {
+  transform: scale(2);
+}
+
+/* Slow-motion Zoom Container */
+.img-hover-zoom--slowmo img {
+  transform-origin: 50% 65%;
+  transition: transform 5s, filter 3s ease-in-out;
+}
+
+/* The Transformation */
+.img-hover-zoom--slowmo:hover img {
+  transform: scale(3);
+}
+
+/** Others **/
+.count-abs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+}
+
+/** Image-comparison **/
+
+#image-compare-wrapper {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#image-compare-divider {
+  position: relative;
+  overflow: hidden;
+}
+
+#image-compare-beforeImage {
+  border-right: 3px #76b900 solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+
+#image-compare-beforeImage img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 0% 50%;
+}
+
+#image-compare-divider img {
+  width: 100%;
+  display: block;
+}
+
+#image-compare-handle {
+  height: 36px;
+  width: 36px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -18px 0 0 -18px;
+  background: #76b900;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+}
+
+#image-compare-handle i {
+  font-size: 18px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 9px;
+}
+
+/** Override **/
+.publication-fiter {
+  z-index: 10;
+}
