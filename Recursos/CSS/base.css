@@ -1,0 +1,216 @@
+.hs-inner .mainpage_title:after , .singlepage-title:after {
+    background: #0cc0c1;
+}
+
+a.hs-totop-link {
+    background: #0cc0c1;
+}
+
+.hs-inner .before-title {
+    color: #0cc0c1;
+}
+
+.hs-menu nav .active-sec .fa {
+    background: #ffff00;
+}
+
+.hs-headline .download{
+    background: #0cc0c1;
+}
+
+.aside1 a {
+    color: #0cc0c1;
+}
+
+.aside1 a:hover {
+    background: #0cc0c1;
+}
+
+.aside1 .aside-content .part1 {
+    color: #969797;
+}
+
+#header .news-scroll span {
+    background: #24C9C3;
+}
+
+#header .news-scroll span:before {
+    border-left: 50px solid #0cc0c1;
+}
+
+.tabs-left > .nav-tabs > li > a {
+    background: #0cc0c1;
+}
+
+.tabs-left > .nav-tabs > li > a:hover, .tabs-left > .nav-tabs > li > a:focus {
+    background: #0cc0c1;
+}
+
+.tab-pane h4 {
+    color: #0cc0c1;
+}
+
+.resume > li > .resume-tag {
+    background: #0cc0c1;
+}
+
+.resume h4 {
+    color: #0cc0c1;
+}
+
+.bar-main-container {
+    background: #0cc0c1;
+}
+
+.publication_item .date {
+    background: #0cc0c1;
+}
+
+.media h4 {
+    color: #0cc0c1;
+}
+
+.label-pub {
+    background: #0cc0c1;
+}
+
+.publication-detail .ext_link {
+    background: #0cc0c1;
+}
+
+.publication-detail .ext_link:hover {
+    color: #0cc0c1;
+}
+
+.team-card-container h3 {
+    color: #0cc0c1;
+}
+
+.team-card-container .back .social-icons a {
+    background: #0cc0c1;
+}
+
+.slide-header h4 {
+    color: #0cc0c1;
+}
+
+.slider-details {
+    background: #0cc0c1;
+}
+
+.teaching-section .teaching > li > .teaching-tag {
+    background: #0cc0c1;
+}
+
+.teaching-section .teaching h4 {
+    color: #0cc0c1;
+}
+
+.work_desc .ext_link {
+    background: #0cc0c1;
+}
+
+.work_desc .ext_link:hover {
+    color: #0cc0c1;
+}
+
+.portfocount_container {
+    background: #0cc0c1;
+}
+
+.contact-section #contact_form .submit_btn:hover {
+    color: #0cc0c1;
+    border: 1px solid #0cc0c1;
+}
+
+.contact-section .contact_info h3 {
+    color: #0cc0c1;
+}
+
+.pace .pace-progress {
+    background: #0cc0c1;
+}
+
+.pricing-table-wrapper .pricing-table-header h3 {
+  background: #0cc0c1;
+}
+
+.proceess_wrap #progressbar li.active:before,  .proceess_wrap #progressbar li.active:after{
+    background: #0cc0c1;
+}
+
+.portfolio-wrapper figure .label {
+    background: #0cc0c1;
+}
+
+.blog-body .title-wrap h2 a , .blog-body .title-wrap h2 {
+    color: #0cc0c1;
+}
+
+.mypost_pagination_loop ul .current  {
+    color: #0cc0c1;
+}
+
+.service-section .serv-wrap .servicelistt ul li {
+    background-color: #0cc0c1;
+}
+
+.service-section .serv-wrap .serv-icons {
+    background-color: #0cc0c1;
+}
+
+.sticky .featured {
+    border-top: 40px solid #0cc0c1;
+}
+.verticaltab .nav-tabs.nav-tabs-left li a, .verticaltab .nav-tabs.nav-tabs-right li a {
+    background: #0cc0c1;
+}
+
+.post-container .btags a {
+    background: #0cc0c1;
+}
+
+body {
+    font-size: 14px;
+}
+
+.hs-inner .mainpage_title,
+.singlepage-title {
+    font-size: 31px;
+}
+
+.content-title {
+    font-size: 16px;
+}
+
+.hs-menu nav a .menu_name {
+    font-size: 15px;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 .1em #0cc0c1;
+    }
+    100% {
+        box-shadow: 0 0 0 3em transparent;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 .1em #0cc0c1;
+    }
+    100% {
+        box-shadow: 0 0 0 3em transparent;
+    }
+}
+
+#my-link {
+    background: #0cc0c1;
+}.hs-content-wrapper {
+    width: 6400px;
+}
+
+.hs-content {
+    width: 700px;
+}
