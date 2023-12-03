@@ -6,6 +6,17 @@ html {
     margin-top: 0 !important;
 }
 
+#map{
+    width: 100%;
+
+    display: inline-block;
+    border-style: solid;
+    border-width: medium;
+
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
 body {
     font-family: 'Titillium Web', Calibri, Arial, sans-serif;
     background: #E4E4E8;
@@ -759,17 +770,8 @@ ul.marquee .marque-tit {
     margin-bottom: 50px;
 }
 
-
-/*
-.about-section .aboutInfo-contanier {
-    height: 100%;
-    margin: 10px 0;
-    position: relative;
-}
-*/
-
 .about-cover {
-    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.55), rgba(43, 48, 59, 0.55)), url(../Imagenes/Fondo.jpg) no-repeat;
+    background: -webkit-linear-gradient(rgba(43, 48, 59, 0.55), rgba(43, 48, 59, 0.55)), url(../Imagenes/Otros/Fondo.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     height: 265px;

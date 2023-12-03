@@ -19,12 +19,15 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/base.css">
   <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <link rel="stylesheet" type="text/css" href="css/carrusel.css">
 
   <!-- Fonts -->
   <link rel="stylesheet" id="theme-slug-fonts-css" href="fonts/fonts.css">
 
+
   <!-- Icons | Fontawesome -->
   <script src="https://kit.fontawesome.com/4e8d494dde.js" crossorigin="anonymous"></script>
+  <script src="js/carrusel.js"></script>
 
   <noscript>
     <style>
@@ -55,7 +58,7 @@
     <div class="hs-headline">
       <a id="my-link" href="#my-panel"><i class="fa fa-bars" aria-hidden="true"></i></a>
       <div class="img-wrap">
-        <img src="Imagenes/FotoPersonal.jpg">
+        <img src="Imagenes/Otros/FotoPersonal.jpg">
       </div>
       <div class="profile_info">
         <h1>Pablo Latorre Hortelano</h1>
@@ -86,6 +89,14 @@
             <span class="menu_name">REPOSITORIES</span>
             <span class="fa fa-code" aria-hidden="true"></span>
           </a>
+          <a class="menu_reg" href="#section4">
+            <span class="menu_name">SPORT</span>
+            <span class="fa fa-person-running" aria-hidden="true"></span>
+          </a>
+          <a class="menu_reg" href="#section5">
+            <span class="menu_name">HOBBIES</span>
+            <span class="fa fa-gamepad" aria-hidden="true"></span>
+          </a>
         </div>
       </div>
     </nav>
@@ -105,30 +116,6 @@
   <!-- hs-content-scroller -->
 
   <div class="hs-content-scroller" style="overflow: hidden;">
-<!--    <div class="arrow-prev">-->
-<!--      <a href="" class="previous-page arrow" style="display: none;">-->
-<!--        <i class="fa fa-angle-left" aria-hidden="true"></i>-->
-<!--      </a>-->
-<!--    </div>-->
-
-<!--    <div class="arrow-next">-->
-<!--      <a href="" class="next-page arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></a>-->
-<!--    </div>-->
-
-    <!-- Header -->
-<!--    <div id="header_container">-->
-<!--      <div id="header">-->
-<!--        <div class="news-scroll">-->
-<!--          <span><i class="fa fa-line-chart fa-lg" aria-hidden="true"></i><strong>RECENT ACTIVITY</strong></span>-->
-<!--          <ul id="marquee" class="marquee">-->
-<!--            <li class="" style="top: 0px; left: -835px;">Our work 'Metaheuristics for the optimization of Terrestrial LiDAR set-up' has just been published in Automation in Construction!</li>-->
-<!--            <li class="marquee-showing" style="top: 0px; left: -834.229px;">Our work 'Efficient generation of occlusion-aware multispectral and thermographic point clouds' has just been published in Computers &amp; Electronics in Agriculture!</li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-   <!-- End Header -->
-
 
     <!-- hs-content-wrapper -->
     <div class="hs-content-wrapper">
@@ -221,7 +208,7 @@
                     <ul class="resume">
                       <li>
                         <div class="timeline-item">
-                          <img class="resume-image" width="50" src="Imagenes/UJA.png">
+                          <img class="resume-image" width="50" src="Imagenes/Otros/UJA.png">
                           <h3 class="timeline-header">Computer Science Master</h3>
                           <div class="timeline-body">
                             <h4>University of Jaén</h4>
@@ -240,7 +227,7 @@
 
                       <li>
                         <div class="timeline-item">
-                          <img class="resume-image" width="50" src="Imagenes/UJA.png">
+                          <img class="resume-image" width="50" src="Imagenes/Otros/UJA.png">
                           <h3 class="timeline-header">Computer Science Degree</h3>
                           <div class="timeline-body">
                             <h4>University of Jaén</h4>
@@ -272,7 +259,7 @@
                     <ul class="resume">
                       <li>
                         <div class="timeline-item">
-                          <img class="resume-image" width="50" src="Imagenes/UJA.png">
+                          <img class="resume-image" width="50" src="Imagenes/Otros/UJA.png">
                           <h3 class="timeline-header">Development of logical, analytical and mathematical thinking</h3>
                           <div class="timeline-body">
                             <h4>University of Jaén</h4>
@@ -330,6 +317,23 @@
                     <ul class="resume">
                       <li>
                         <div class="timeline-item">
+                          <img class="resume-image" width="50" src="Imagenes/Otros/UJA.png">
+                          <h3 class="timeline-header">IX Ada Lovelace Award</h3>
+                          <div class="timeline-body">
+                            <h4>Centro de Estudios Avanzados en TIC, Universidad de Jaén </h4>
+                            <span> Award for the project 'Prototype of a WebGL application for the management, monitoring and prediction of the evolution of olive plantations' as the best Bachelor or Master thesis during academic year 2022-2023. </span>
+                          </div>
+                        </div>
+                        <div class="resume-tag">
+                          <span class="fa fa-graduation-cap" aria-hidden="true"></span>
+                          <div class="resume-date">
+                            <span>2023</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="timeline-item">
+                          <img class="resume-image" width="50" src="Imagenes/Otros/UJA.png">
                           <h3 class="timeline-header">Research Initiation Grant</h3>
                           <div class="timeline-body">
                             <h4>Plan Accion 2 - Universidad de Jaén</h4>
@@ -425,7 +429,7 @@
               <div class="portfolio portfolio-wrapper shuffle" id="mygridportfolio" style="position: relative; height: 2680px; transition: height 500ms ease-out 0s;">
 
                 <figure class="portfol_item effect-milo shuffle-item filtered" data-groups="[&quot;All&quot;,&quot;Rendering&quot;,&quot;OpenGL&quot;]" style="position: absolute; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); opacity: 1; transition: transform 500ms ease-out 0s, opacity 500ms ease-out 0s;">
-                  <img width="910" height="600" src="Imagenes/AplicacionWebGL.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
+                  <img width="910" height="600" src="Imagenes/Repositorios/AplicacionWebGL.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
                   <figcaption>
 
                     <div class="spa-wrap">
@@ -487,7 +491,7 @@
                 </figure>
 
                 <figure class="portfol_item effect-milo shuffle-item filtered" data-groups="[&quot;All&quot;,&quot;Geometric Algorithms&quot;,&quot;Rendering&quot;,&quot;OpenGL&quot;]" style="position: absolute; top: 0px; left: 0px; transform: translate3d(0px, 268px, 0px) scale3d(1, 1, 1); opacity: 1; transition: transform 500ms ease-out 0s, opacity 500ms ease-out 0s;">
-                  <img width="910" height="600" src="Imagenes/KD-Tree.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
+                  <img width="910" height="600" src="Imagenes/Repositorios/KD-Tree.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
                   <figcaption>
 
                     <div class="spa-wrap">
@@ -564,7 +568,7 @@
                 </figure>
 
                 <figure class="portfol_item effect-milo shuffle-item filtered" data-groups="[&quot;All&quot;,&quot;Rendering&quot;,&quot;OpenGL&quot;]" style="position: absolute; top: 0px; left: 0px; transform: translate3d(0px, 536px, 0px) scale3d(1, 1, 1); opacity: 1; transition: transform 500ms ease-out 0s, opacity 500ms ease-out 0s;">
-                  <img width="910" height="600" src="Imagenes/nbaSim.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
+                  <img width="910" height="600" src="Imagenes/Repositorios/nbaSim.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
                   <figcaption>
                     <div class="spa-wrap">
                       <span class="label"> <a href="https://github.com/AlfonsoLRz/brdf_viewer" target="_blank" style="color: inherit;">Github <i class="fa-brands fa-github"></i></a> </span>
@@ -577,7 +581,7 @@
                 </figure>
 
                 <figure class="portfol_item effect-milo shuffle-item filtered" data-groups="[&quot;All&quot;,&quot;Rendering&quot;,&quot;OpenGL&quot;,&quot;Interface&quot;]" style="position: absolute; top: 0px; left: 0px; transform: translate3d(0px, 804px, 0px) scale3d(1, 1, 1); opacity: 1; transition: transform 500ms ease-out 0s, opacity 500ms ease-out 0s;">
-                  <img width="910" height="600" src="Imagenes/LogAnalyzer.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
+                  <img width="910" height="600" src="Imagenes/Repositorios/LogAnalyzer.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
                   <figcaption>
                     <div class="spa-wrap">
                       <span class="label"> <a href="https://github.com/AlfonsoLRz/AG2223" target="_blank" style="color: inherit;">Github <i class="fa-brands fa-github"></i></a> </span>
@@ -590,7 +594,7 @@
                 </figure>
 
                 <figure class="portfol_item effect-milo shuffle-item filtered" data-groups="[&quot;All&quot;,&quot;Deep Learning&quot;,&quot;Hyperspectral&quot;]" style="position: absolute; top: 0px; left: 0px; transform: translate3d(0px, 1072px, 0px) scale3d(1, 1, 1); opacity: 1; transition: transform 500ms ease-out 0s, opacity 500ms ease-out 0s;">
-                  <img width="910" height="600" src="Imagenes/Strava2Notion.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
+                  <img width="910" height="600" src="Imagenes/Repositorios/Strava2Notion.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
                   <figcaption>
                     <div class="spa-wrap">
                       <span class="label">Deep Learning</span><span class="label">Python</span><span class="label">Hyperspectral</span>
@@ -604,7 +608,7 @@
                 </figure>
 
                 <figure class="portfol_item effect-milo shuffle-item filtered" data-groups="[&quot;All&quot;,&quot;Android&quot;,&quot;Mobile&quot;]" style="position: absolute; top: 0px; left: 0px; transform: translate3d(0px, 1608px, 0px) scale3d(1, 1, 1); opacity: 1; transition: transform 500ms ease-out 0s, opacity 500ms ease-out 0s;">
-                  <img width="910" height="600" src="Imagenes/Olive-Segmentation.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
+                  <img width="910" height="600" src="Imagenes/Repositorios/Olive-Segmentation.png" class="img-responsive wp-post-image" alt="" loading="lazy" sizes="(max-width: 910px) 100vw, 600px">
                   <figcaption>
                     <div class="spa-wrap">
                       <span class="label"> <a href="https://www.youtube.com/watch?v=htY7kljKS_U" target="_blank" style="color: inherit;">Showcase <i class="fa-brands fa-youtube"></i></a> </span>
@@ -631,8 +635,163 @@
           </div>
         </div>
       </article>
-      <!-- End Works section -->
 
+      <article class="hs-content jspScrollable" id="section4" tabindex="0" style="overflow: hidden; padding: 0px; width: 700px;">
+        <div class="jspContainer" style="width: 700px; height: 2500px;">
+          <div class="jspPane" style="padding: 0px; top: 0px; width: 696px;"><span class="sec-icon fa fa-home active-sec" aria-hidden="true"></span>
+            <div class="hs-inner">
+              <h2 class="mainpage_title">SPORT</h2>
+              <span class="content-title">GALLERY</span>
+              <div class="slider">
+                <ul id="carrusel">
+                  <li class="active" id="imagen-0">
+                    <img src="Imagenes/Deporte/Puentes_2023_1.jpeg" />
+                  </li>
+                  <li id="imagen-1">
+                    <img src="Imagenes/Deporte/Puentes_2023_2.jpeg" />
+                  </li>
+                  <li id="video-1">
+                    <video controls muted>
+                      <source src="Imagenes/Deporte/Puentes_2023_3.mp4" type="video/mp4">
+                      Tu navegador no soporta el elemento de video.
+                    </video>
+                  </li>
+                  <li id="imagen-2">
+                    <img src="Imagenes/Deporte/MediaMalaga_2023_1.jpg" />
+                  </li>
+                  <li id="imagen-3">
+                    <img src="Imagenes/Deporte/MediaMalaga_2023_2.jpeg" />
+                  </li>
+                  <li id="imagen-4">
+                    <img src="Imagenes/Deporte/SanAnton_2023_1.jpg" />
+                  </li>
+                  <li id="imagen-5">
+                    <img src="Imagenes/Deporte/SanAnton_2023_2.jpg" />
+                  </li>
+                  <li id="imagen-6">
+                    <img src="Imagenes/Deporte/Senderismo.jpg" />
+                  </li>
+                  <li id="imagen-7">
+                    <img src="Imagenes/Deporte/EntrenoTrail.JPG" />
+                  </li>
+                  <li id="imagen-8">
+                    <img src="Imagenes/Deporte/EntrenoTrail_2.JPG" />
+                  </li>
+                </ul>
+              </div>
+
+              <div class="so-panel widget widget_pulse_title panel-first-child" data-index="0">
+                <span class="content-title">PERSONAL BESTS</span>
+              </div>
+              <div class="row" style="margin-left: 5%">
+                <div class="card red pulse">
+                  <p><b>5 Km</b></p><br><p> 19:42 </p>
+                </div>
+                <div class="card red pulse">
+                  <p><b>10 Km</b></p><br><p> 41:28 </p>
+                </div>
+                <div class="card red pulse">
+                  <p><b>15 Km</b></p><br><p> 1:03:30 </p>
+                </div>
+                <div class="card red pulse">
+                  <p><b>21 Km</b></p><br><p> 1:32:15 </p>
+                </div>
+              </div>
+              <div class="so-panel widget widget_pulse_title panel-first-child" data-index="0">
+                <span class="content-title">STRAVA</span>
+              </div>
+              <div>
+                <div class="row" style="align-items: center; display:flex; margin-bottom: 5%">
+                  <iframe height='350' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/49024469/latest-rides/323b989502df87aa104a8d7a9bd2616bddcb643b' style="margin-right: 4%"></iframe>
+                  <iframe height='200' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/49024469/activity-summary/323b989502df87aa104a8d7a9bd2616bddcb643b'></iframe>
+                </div>
+              </div>
+              <div class="so-panel widget widget_pulse_title panel-first-child" data-index="0">
+                <span class="content-title">RACES</span>
+              </div>
+              <div>
+                <div class="card-race">
+                  <div class="arriba">
+                    <h2 style="text-align: center; padding: 0; margin:0; margin-left: -10px">Carrera los puentes </h2>
+                  </div>
+                  <div>
+                    <p style="text-align: center">Distancia: 18 Km (Asfalto - Carriles) <br> Mejor tiempo: 1:33:03 <br> Número de participaciones: 1 <i class="fa fa-trophy"></i><br> 2023</p>
+                  </div>
+                </div>
+                <div class="card-race">
+                  <div class="arriba">
+                    <h2 style="text-align: center; padding: 0; margin:0; margin-left: -10px">Media Maratón de Málaga</h2>
+                  </div>
+                  <div>
+                    <p style="text-align: center">Distancia: 21 Km (Asfalto) <br> Mejor tiempo: 1:32:15 <br> Número de participaciones: 1 <i class="fa fa-trophy"></i><br> 2023</p>
+                  </div>
+                </div>
+                <div class="card-race">
+                  <div class="arriba">
+                    <h2 style="text-align: center; padding: 0; margin:0; margin-left: -10px">Carrera Noche de San Antón (Jaén)</h2>
+                  </div>
+                  <div>
+                    <p style="text-align: center">Distancia: 10 Km (Asfalto) <br> Mejor tiempo: 43:05 <br> Número de participaciones: 8 <i class="fa fa-trophy"></i><br>2023,2022,2020,2019,2018,2017,2016,2015 </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="jspVerticalBar">
+            <div class="jspCap jspCapTop"></div>
+            <div class="jspTrack" style="height: 885px;">
+              <div class="jspDrag jspHover" style="height: 762px;">
+                <div class="jspDragTop"></div>
+                <div class="jspDragBottom"></div>
+              </div>
+            </div>
+            <div class="jspCap jspCapBottom"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hs-content jspScrollable" id="section5" tabindex="0" style="overflow: hidden; padding: 0px; width: 700px;">
+        <div class="jspContainer" style="width: 700px; height: 2500px;">
+          <div class="jspPane" style="padding: 0px; top: 0px; width: 696px;"><span class="sec-icon fa fa-home active-sec" aria-hidden="true"></span>
+            <div class="hs-inner">
+              <h2 class="mainpage_title">HOBBIES</h2>
+              <span class="content-title">GALLERY</span>
+
+
+              <div class="so-panel widget widget_pulse_title panel-first-child" data-index="0">
+                <span class="content-title">3D Models</span>
+              </div>
+              <div>
+
+              </div>
+
+              <div class="so-panel widget widget_pulse_title panel-first-child" data-index="0">
+                <span class="content-title">BOOKS</span>
+              </div>
+              <div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="jspVerticalBar">
+            <div class="jspCap jspCapTop"></div>
+            <div class="jspTrack" style="height: 885px;">
+              <div class="jspDrag jspHover" style="height: 762px;">
+                <div class="jspDragTop"></div>
+                <div class="jspDragBottom"></div>
+              </div>
+            </div>
+            <div class="jspCap jspCapBottom"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div id="modal01" class="modal" onclick="this.style.display='none'">
+      <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <div class="modal-content">
+        <img id="img01" style="max-width:100%">
+      </div>
     </div>
     <!-- End hs-content-wrapper -->
   </div>
