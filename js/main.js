@@ -156,7 +156,7 @@ jQuery(document).ready(function($) {
           const templateID = 'template_wckx97k';
 
           emailjs.sendForm(serviceID, templateID, this).then(function(response) {
-            $('.email-receipt').text('Your email has been successfully delivered!').css({visibility: "visible"}).animate({opacity: 1.0, "margin-bottom": "26px", "background-color": "#0cc0c1"}, 1000);
+            $('.email-receipt').text('Your email has been successfully delivered!').css({visibility: "visible"}).animate({opacity: 1.0, "margin-bottom": "26px", "background-color": "#0cc0c1"}, 900);
 
             // Clean text inputs to avoid new submissions
             $('input[name=name]').val("");
@@ -164,7 +164,7 @@ jQuery(document).ready(function($) {
             $('input[name=subject]').val("");
             $('textarea[name=message]').val("");
           }, function(error) {
-            $('.email-receipt').text('There was an error and your email has not been delivered! Please try again later.').css({visibility: "visible", "background-color": "#F23860"}).animate({opacity: 1.0, "margin-bottom": "26px"}, 1000);
+            $('.email-receipt').text('There was an error and your email has not been delivered! Please try again later.').css({visibility: "visible", "background-color": "#F23860"}).animate({opacity: 1.0, "margin-bottom": "26px"}, 900);
           });
       }
 
@@ -186,7 +186,7 @@ jQuery(document).ready(function($) {
     var content = $('.hs-menu nav').contents();
     $('#my-panel').jScrollPane();
     $(window).bind("load resize", function() {
-        if ($(window).width() <= 755) {
+        if ($(window).width() <= 900) {
             $('#my-link').panelslider({
                 side: 'left',
                 clickClose: false,
@@ -311,7 +311,7 @@ jQuery(document).ready(function($) {
         var oldsldrwidth = $('.research-section .slider-details').width();
         $('.research-section .slider-details').width(oldsldrwidth - 100);
         $(window).bind("load resize", function() {
-            if ($(window).width() > 755) {
+            if ($(window).width() > 900) {
 
                 var heightdoc = $(document).height();
                 $('.hs-content-wrapper').height(heightdoc - 47);

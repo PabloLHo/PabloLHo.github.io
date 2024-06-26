@@ -608,7 +608,7 @@ a.hs-totop-link {
 .header_but {
     height: 50px;
     display: inline;
-    float: left;
+    float: right;
 }
 
 #header .homesection {
@@ -718,7 +718,7 @@ a.hs-totop-link {
   height: 51px;
     font-family: Titillium Web;
     padding: 0 20px 0 20px;
-    float: right;
+    float: left;
     font-size: 13px;
     font-weight: 600;
     position: relative;
@@ -748,7 +748,7 @@ ul.marquee li {
     left: 0;
     display: block;
     white-space: nowrap;
-    padding-left: 100px;
+    padding-left: 15px;
 }
 
 ul.marquee li strong {
@@ -5099,31 +5099,31 @@ span.wpcf7-not-valid-tip {
 
 @-webkit-keyframes moveclouds {
     0% {
-        margin-left: 1000px;
+        margin-left: 900px;
     }
 
     100% {
-        margin-left: -1000px;
+        margin-left: -900px;
     }
 }
 
 @-moz-keyframes moveclouds {
     0% {
-        margin-left: 1000px;
+        margin-left: 900px;
     }
 
     100% {
-        margin-left: -1000px;
+        margin-left: -900px;
     }
 }
 
 @-o-keyframes moveclouds {
     0% {
-        margin-left: 1000px;
+        margin-left: 900px;
     }
 
     100% {
-        margin-left: -1000px;
+        margin-left: -900px;
     }
 }
 
@@ -5142,7 +5142,7 @@ span.wpcf7-not-valid-tip {
     }
 }
 
-@media screen and (max-width: 755px) {
+@media screen and (max-width: 900px) {
     body {
         overflow-x: auto;
         overflow-y: auto;

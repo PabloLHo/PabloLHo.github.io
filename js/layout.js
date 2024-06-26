@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
       $links = $menu.find('a.menu_reg'),
       $articles = $container.find('div.hs-content-wrapper > article'),
       // button to scroll to the top of the page
-      // only shown when screen size < 755
+      // only shown when screen size < 900
       $toTop = $container.find('a.hs-totop-link'),
       // the browser nhistory object
       History = window.History,
@@ -33,9 +33,9 @@ jQuery(document).ready(function($) {
       },
 
       _initCustomScroll = function() {
-        // Only add custom scroll to articles if screen size > 755.
+        // Only add custom scroll to articles if screen size > 900.
         // If not the articles will be expanded
-        if ($(window).width() > 755) {
+        if ($(window).width() > 900) {
             $articles.jScrollPane(scrollOptions);
         }
         // add custom scroll to menu
@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
             var left = $article.position().left,
                 top = $article.position().top,
                 // check if we are scrolling down or left
-                // is_v will be true when the screen size < 755
+                // is_v will be true when the screen size < 900
                 is_v = ($(document).height() - $(window).height() > 0),
                 // animation parameters:
                 // if vertically scrolling then the body will animate the scrollTop,
@@ -83,7 +83,7 @@ jQuery(document).ready(function($) {
           var windowWidth = $(window).width();
 
           switch (true) {
-            case (windowWidth <= 755) :
+            case (windowWidth <= 900) :
                 $scroller.scrollLeft(0).css('overflow', 'visible');
                 break;
             case (windowWidth <= 1024):
@@ -112,12 +112,12 @@ jQuery(document).ready(function($) {
               $('article.hs-content').each(function() {
                   var $article = $(this), aJSP = $article.data('jsp');
 
-                  if ($(window).width() > 755) {
+                  if ($(window).width() > 900) {
                     (aJSP === undefined) ? $article.jScrollPane(scrollOptions) : aJSP.reinitialise();
                     _initArticleEvents();
                   }
                   else {
-                    // destroy article's custom scroll if screen size <= 755px
+                    // destroy article's custom scroll if screen size <= 900px
                     if (aJSP !== undefined)
                       aJSP.destroy();
                     $container.off('click', 'article.hs-content');
@@ -128,7 +128,7 @@ jQuery(document).ready(function($) {
               nJSP.reinitialise();
 
               // jumps to the current section
-              if ($(window).width() > 755) {
+              if ($(window).width() > 900) {
                 _goto();
               }
             },
@@ -161,7 +161,7 @@ jQuery(document).ready(function($) {
           });
 
           // scrolls to the top of the page.
-          // this button will only be visible for screen size < 755
+          // this button will only be visible for screen size < 900
           $(window).on('scroll',function() {
             if ($(this).scrollTop() > 100) {
               $toTop.fadeIn();
