@@ -157,7 +157,13 @@ function escena_3(scene){
 }
 
 const intervalID = setInterval(function(){
-    if(inicio && cargado) {
+    if(cargado && !inicio) {
+        document.getElementById("cargaTexto").innerHTML = "Click the botton to advance";
+        document.getElementById("cargaTexto").style.left = "45%";
+    }else if(!cargado && inicio) {
+        document.getElementById("cargaTexto").style.top = "58%";
+        document.getElementById("tio").style.top = "50%";
+    }else if(inicio && cargado) {
         engine.hideLoadingUI();
         clearInterval(intervalID);
     }
