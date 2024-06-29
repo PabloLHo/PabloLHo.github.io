@@ -13,8 +13,10 @@
   <!-- BabylonJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
   <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+  <script src="https://cdn.babylonjs.com/recast.js"></script>
   <script src="https://preview.babylonjs.com/ammo.js"></script>
   <script src="https://preview.babylonjs.com/cannon.js"></script>
+  <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
   <script src="https://preview.babylonjs.com/Oimo.js"></script>
   <script src="https://preview.babylonjs.com/earcut.min.js"></script>
   <script src="https://preview.babylonjs.com/babylon.js"></script>
@@ -28,7 +30,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
 
+
   <script src='js/WebGL/escena.js'></script>
+  <!-- <script src='js/WebGL/juego.js'></script> -->
 
   <!--Gui-->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js'></script>
@@ -37,6 +41,7 @@
   <link rel="stylesheet" type="text/css" href="css/WebGL/style.min.css">
   <link rel="stylesheet" type="text/css" href="css/WebGL/main.css">
   <link rel="stylesheet" type="text/css" href="css/WebGL/base.css">
+  <link rel="stylesheet" type="text/css" href="css/WebGL/popup.css">
 
   <!-- Fonts -->
   <link rel="stylesheet" id="theme-slug-fonts-css" href="fonts/fonts.css">
@@ -77,29 +82,37 @@
 
     <div class="header_but" style="align: rigth">
       <div>
-        <a class="homesection" onclick="location.href='home.html'" ><i class="fa fa-home fa-lg"></i></a>
+        <a class="homesection" id="homesection" onclick="location.href='home.html'" ><i class="fa fa-home fa-lg"></i></a>
       </div>
     </div>
 
     <div class="news-scroll">
 
-        <span><i class="fa-solid fa-person fa-lg"></i><strong> &nbsp PERSONAL WEBGL : </strong></span>
+      <span><i class="fa-solid fa-person fa-lg"></i><strong> &nbsp PERSONAL WEB : </strong></span>
 
-        <ul id="marquee" class="marquee">
-          <li>It is possible to skip the game and go to the text page clicking on the Home option.</li>
-        </ul>
+      <ul id="marquee" class="marquee">
+        <li>It is possible to skip the WebGL page and go to the personal page clicking on the Home option.</li>
+      </ul>
 
     </div>
   </div>
+
+  <div class="popup" id="popup" style="z-index: 1000">
+    <p>Welcome to Pablo's personal website! <br> Press the button to start getting to know me.</p>
+    <button onclick="empezar()">Empieza!</button>
+  </div>
+
+
 </section>
 
 
-<!-- Canvas del juego -->
-  <div id="canvasZone">
-    <canvas id="renderCanvas"></canvas>
-    <script src="js/WebGL/cargaBabylon.js"></script>
-  </div>
+<canvas id="loadingCanvas"></canvas>
+<script src='js/WebGL/carga.js'></script>
 
+<div id="canvasZone">
+  <canvas id="renderCanvas"></canvas>
+  <script src="js/WebGL/cargaBabylon.js"></script>
+</div>
 
 
 <!-- PLUGIN SCRIPTS -->

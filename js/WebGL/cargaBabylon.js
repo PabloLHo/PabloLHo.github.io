@@ -14,6 +14,22 @@ var scene = null;
 var sceneToRender = null;
 var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
 
+BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
+
+	loadingloadingCanvas = document.getElementById("loadingloadingCanvas");
+	// Configuración específica para el loadingCanvas de carga
+	// Aquí puedes dibujar lo que desees mostrar como pantalla de carga
+	var ctx = loadingloadingCanvas.getContext("2d");
+	ctx.fillStyle = "#ffffff";
+	ctx.font = "30px Arial";
+	ctx.fillText("Loading...", 50, 50); // Ejemplo de texto de carga
+};
+
+BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function(){
+	document.getElementById("customLoadingScreenDiv").style.display = "none";
+	console.log("scene is now loaded");
+}
+
 window.initFunction = async function() {
 	var asyncEngineCreation = async function() {
 		try {
@@ -26,7 +42,8 @@ window.initFunction = async function() {
 	window.engine = await asyncEngineCreation();
 	if (!engine) throw 'engine should not be null.';
 	startRenderLoop(engine, canvas);
-	window.scene = createScene();
+	var aleatorio = Math.random() % 3 + 1;
+	window.scene = createScene(aleatorio);
 };
 	
 	
@@ -42,6 +59,6 @@ window.addEventListener("resize", function () {
 });
 
 
-const createScene = () => {
-	return window["Personal"]();
+const createScene = (escena) => {
+	return window["Intro"](escena);
 }
