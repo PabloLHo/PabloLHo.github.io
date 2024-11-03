@@ -4,51 +4,51 @@ jQuery(document).ready(function($) {
 
   var Page = (function() {
     var $container = $('#hs-container'),
-      // the scroll container that wraps the articles
-      $scroller = $container.find('div.hs-content-scroller'),
-      $menu = $container.find('aside'),
-      // menu links
-      $links = $menu.find('a.menu_reg'),
-      $articles = $container.find('div.hs-content-wrapper > article'),
-      // button to scroll to the top of the page
-      // only shown when screen size < 900
-      $toTop = $container.find('a.hs-totop-link'),
-      // the browser nhistory object
-      History = window.History,
-      // animation options
-      animation = {speed: 800, easing: 'easeInOutQuad'},
-      // jScrollPane options
-      scrollOptions = {verticalGutter: 0, hideFocus: false, contentWidth: '0px'},
-      // init function
-      init = function() {
-        // initialize the jScrollPane on both the menu and articles
-        _initCustomScroll();
-        // initialize some events
-        _initEvents();
-        // sets some css properties
-        _layout();
-        // jumps to the respective section
-        // according to the url
-        _goto();
-      },
+        // the scroll container that wraps the articles
+        $scroller = $container.find('div.hs-content-scroller'),
+        $menu = $container.find('aside'),
+        // menu links
+        $links = $menu.find('a.menu_reg'),
+        $articles = $container.find('div.hs-content-wrapper > article'),
+        // button to scroll to the top of the page
+        // only shown when screen size < 900
+        $toTop = $container.find('a.hs-totop-link'),
+        // the browser nhistory object
+        History = window.History,
+        // animation options
+        animation = {speed: 800, easing: 'easeInOutQuad'},
+        // jScrollPane options
+        scrollOptions = {verticalGutter: 0, hideFocus: false, contentWidth: '0px'},
+        // init function
+        init = function() {
+          // initialize the jScrollPane on both the menu and articles
+          _initCustomScroll();
+          // initialize some events
+          _initEvents();
+          // sets some css properties
+          _layout();
+          // jumps to the respective section
+          // according to the url
+          _goto();
+        },
 
-      _initCustomScroll = function() {
-        // Only add custom scroll to articles if screen size > 900.
-        // If not the articles will be expanded
-        if ($(window).width() > 900) {
+        _initCustomScroll = function() {
+          // Only add custom scroll to articles if screen size > 900.
+          // If not the articles will be expanded
+          if ($(window).width() > 900) {
             $articles.jScrollPane(scrollOptions);
-        }
-        // add custom scroll to menu
-        $menu.children('nav').jScrollPane(scrollOptions);
-      },
+          }
+          // add custom scroll to menu
+          $menu.children('nav').jScrollPane(scrollOptions);
+        },
 
-      _goto = function(section) {
-        // get the url from history state (e.g. section=3) and extract the section number
-        var section = section || History.getState().url.queryStringToJSON().section,
-            isHome = (section === undefined),
-            // we will jump to the section1 section if theres no section
-            $article = $(section ? '#' + 'section' + section : '#' + 'section1');
-        if ($article.length) {
+        _goto = function(section) {
+          // get the url from history state (e.g. section=3) and extract the section number
+          var section = section || History.getState().url.queryStringToJSON().section,
+              isHome = (section === undefined),
+              // we will jump to the section1 section if theres no section
+              $article = $(section ? '#' + 'section' + section : '#' + 'section1');
+          if ($article.length) {
             // left / top of the element
             var left = $article.position().left,
                 top = $article.position().top,
@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
                 // otherwise the scroller (div.hs-content-scroller) will animate the scrollLeft
                 param = (is_v) ? {scrollTop: (isHome) ? top : top + $menu.outerHeight(true)} : {scrollLeft: left},
                 $elScroller = (is_v) ? $('html, body') : $scroller;
-                $elScroller.stop().animate(param, animation.speed, animation.easing);
+            $elScroller.stop().animate(param, animation.speed, animation.easing);
             $('nav a').removeClass('active-sec');
             $('.hs-content .sec-icon').removeClass('active-sec');
             $('[href="' + "#" + $article.attr("id") + '"]').addClass('active-sec');
@@ -84,14 +84,14 @@ jQuery(document).ready(function($) {
 
           switch (true) {
             case (windowWidth <= 900) :
-                $scroller.scrollLeft(0).css('overflow', 'visible');
-                break;
+              $scroller.scrollLeft(0).css('overflow', 'visible');
+              break;
             case (windowWidth <= 1024):
-                $scroller.css('overflow-x', 'scroll');
-                break;
+              $scroller.css('overflow-x', 'scroll');
+              break;
             case (windowWidth > 1024) :
-                $scroller.css('overflow', 'hidden');
-                break;
+              $scroller.css('overflow', 'hidden');
+              break;
           };
         },
 
@@ -110,18 +110,18 @@ jQuery(document).ready(function($) {
               _layout();
 
               $('article.hs-content').each(function() {
-                  var $article = $(this), aJSP = $article.data('jsp');
+                var $article = $(this), aJSP = $article.data('jsp');
 
-                  if ($(window).width() > 900) {
-                    (aJSP === undefined) ? $article.jScrollPane(scrollOptions) : aJSP.reinitialise();
-                    _initArticleEvents();
-                  }
-                  else {
-                    // destroy article's custom scroll if screen size <= 900px
-                    if (aJSP !== undefined)
-                      aJSP.destroy();
-                    $container.off('click', 'article.hs-content');
-                  }
+                if ($(window).width() > 900) {
+                  (aJSP === undefined) ? $article.jScrollPane(scrollOptions) : aJSP.reinitialise();
+                  _initArticleEvents();
+                }
+                else {
+                  // destroy article's custom scroll if screen size <= 900px
+                  if (aJSP !== undefined)
+                    aJSP.destroy();
+                  $container.off('click', 'article.hs-content');
+                }
               });
 
               var nJSP = $menu.children('nav').data('jsp');
@@ -196,15 +196,15 @@ jQuery(document).ready(function($) {
             var section = section || History.getState().url.queryStringToJSON().section;
 
             if (section == undefined) {
-                _saveState(1);
+              _saveState(1);
             } else {
-                if (section != 1) {
-                    _saveState(section - 1);
+              if (section != 1) {
+                _saveState(section - 1);
 
-                    if ((section - 1) == 1) {
-                        $(".previous-page").hide();
-                    }
+                if ((section - 1) == 1) {
+                  $(".previous-page").hide();
                 }
+              }
             }
 
             return false;
@@ -269,14 +269,14 @@ jQuery(document).ready(function($) {
           }
         };
 
-        // Hide previous button if section is 1
-        var startingSection = History.getState().url.queryStringToJSON().section;
-        if (startingSection == undefined || (startingSection) == 1) {
-          _saveState(1);
-        }
+    // Hide previous button if section is 1
+    var startingSection = History.getState().url.queryStringToJSON().section;
+    if (startingSection == undefined || (startingSection) == 1) {
+      _saveState(1);
+    }
 
-        return {init: init};
-      })();
+    return {init: init};
+  })();
 
-      Page.init();
+  Page.init();
 });
