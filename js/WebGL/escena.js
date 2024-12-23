@@ -9,29 +9,55 @@ var sceneX;
 var textureGround;
 var x = 0;
 
-function empezar(){
-    document.getElementById('popup').style.display = 'none'
-    inicio = true;
-}
+
 
 function Intro(escena){
 
-    //Escena 1
     engine.displayLoadingUI();
-    scene_cap = new BABYLON.Scene(engine);
 
-    crearEntorno("../assets/CapWS.jpg", scene_cap);
-    escena_1(scene_cap, "../assets/CapWS.jpg");
+    scene = new BABYLON.Scene(engine);
 
-    scene_2 = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color3(0,0,0);
 
-    crearEntorno("../assets/loading_screen.jpg", scene_2);
-    escena_2(scene_2);
+    const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 1.4, Math.PI / 3, 13, new BABYLON.Vector3(0, 0, 0));
+    camera.attachControl(canvas, true);
 
-    sceneX = new BABYLON.Scene(engine);
+    camera.upperBetaLimit = Math.PI / 2.5;
+    camera.upperRadiusLimit = 15;
+    camera.upperAlphaLimit = Math.PI;
 
-    crearEntorno("../assets/loading_screen.jpg", sceneX);
-    escena_3(sceneX);
+    camera.lowerBetaLimit = Math.PI / 20;
+    camera.lowerRadiusLimit = 10;
+    camera.lowerAlphaLimit = Math.PI / 2;
+
+    camera.angularSensibilityX = 5000;
+    camera.angularSensibilityY = 5000;
+
+    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
+
+    BABYLON.SceneLoader.ImportMeshAsync("", "assets/modelos/", "myRoom.glb", scene).then((result) => {
+
+        var cap = result.meshes[0];
+        //cap.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3);
+
+        cap.position = new BABYLON.Vector3(0, 0, 0);
+        cargado = true;
+    });
+
+    // scene_cap = new BABYLON.Scene(engine);
+
+    // crearEntorno("../assets/CapWS.jpg", scene_cap);
+    // escena_1(scene_cap, "../assets/CapWS.jpg");
+
+    // scene_2 = new BABYLON.Scene(engine);
+
+    // crearEntorno("../assets/loading_screen.jpg", scene_2);
+    // escena_2(scene_2);
+
+    // sceneX = new BABYLON.Scene(engine);
+
+    // crearEntorno("../assets/loading_screen.jpg", sceneX);
+    // escena_3(sceneX);
 
     // switch (escena){
     //     case 1:
@@ -42,7 +68,7 @@ function Intro(escena){
     //         return sceneX;
     // }
 
-    return scene_cap;
+    return scene;
 
 }
 
@@ -191,14 +217,22 @@ function escena_3(scene){
 }
 
 const intervalID = setInterval(function(){
-    if(cargado && !inicio) {
-        document.getElementById("cargaTexto").innerHTML = "Click the botton to advance";
-        document.getElementById("cargaTexto").style.left = "45%";
-    }else if(!cargado && inicio) {
-        document.getElementById("cargaTexto").style.top = "58%";
-        document.getElementById("tio").style.top = "50%";
-    }else if(inicio && cargado) {
+    if(cargado) {
         engine.hideLoadingUI();
         clearInterval(intervalID);
     }
 }, 1000);
+
+// Esto se encarga de comprobar si se han cargado ya todos los assets de la parte WebGL
+// const intervalID = setInterval(function(){
+//     if(cargado && !inicio) {
+//         document.getElementById("cargaTexto").innerHTML = "Click one botton to advance";
+//         document.getElementById("cargaTexto").style.left = "45%";
+//     }else if(!cargado && inicio) {
+//         document.getElementById("cargaTexto").style.top = "58%";
+//         document.getElementById("tio").style.top = "50%";
+//     }else if(inicio && cargado) {
+//         engine.hideLoadingUI();
+//         clearInterval(intervalID);
+//     }
+// }, 1000);

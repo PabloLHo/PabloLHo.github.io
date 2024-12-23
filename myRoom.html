@@ -31,6 +31,9 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
 
 
+  <script src='js/WebGL/escena.js'></script>
+  <!-- <script src='js/WebGL/juego.js'></script> -->
+
   <!--Gui-->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js'></script>
 
@@ -75,11 +78,23 @@
 
 <!-- Cabecera de introducción -->
 <section>
+  <div id="header">
 
-  <div class="popup" id="popup" style="z-index: 10000">
-    <p>Welcome to Pablo's personal website! <br> Press one button to start getting to know me.</p>
-    <button onclick="location.href='home.html'">Classic Page!</button>
-    <button onclick="location.href='myRoom.html'">WebGL Page!</button>
+    <div class="header_but" style="align: rigth">
+      <div>
+        <a class="homesection" id="homesection" onclick="location.href='home.html'" ><i class="fa fa-home fa-lg"></i></a>
+      </div>
+    </div>
+
+    <div class="news-scroll">
+
+      <span><i class="fa-solid fa-person fa-lg"></i><strong> &nbsp PERSONAL WEB : </strong></span>
+
+      <ul id="marquee" class="marquee">
+        <li>It is possible to skip the WebGL page and go to the personal page clicking on the Home option.</li>
+      </ul>
+
+    </div>
   </div>
 
 
@@ -87,7 +102,7 @@
 
 <div id="canvasZone">
   <canvas id="renderCanvas"></canvas>
-  <script src="js/Index/cargaBabylon.js"></script>
+  <script src="js/WebGL/cargaBabylon.js"></script>
 </div>
 
 </body>
