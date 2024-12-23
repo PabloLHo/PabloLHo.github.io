@@ -35,7 +35,7 @@ function Intro(escena){
 
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
 
-    BABYLON.SceneLoader.ImportMeshAsync("", "assets/modelos/", "myRoom.glb", scene).then((result) => {
+    BABYLON.SceneLoader.ImportMeshAsync("", "https://drive.google.com/uc?export=download&id=13fnRI0J-zd3g7V9ux79iKRFaI1NwCJT7", "", scene).then((result) => {
 
         var cap = result.meshes[0];
         //cap.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3);
