@@ -1,17 +1,8 @@
-var inicio = false;
 var cargado = false;
-var pillado = false;
 
-var scene_cap;
-var scene_2;
-var sceneX;
+loadedModels = [];
 
-var textureGround;
-var x = 0;
-
-
-
-function Intro(escena){
+function Intro(){
 
     engine.displayLoadingUI();
 
@@ -33,24 +24,50 @@ function Intro(escena){
     camera.angularSensibilityX = 5000;
     camera.angularSensibilityY = 5000;
 
-    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
+    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 
-    BABYLON.SceneLoader.ImportMeshAsync("", "assets/modelos/", "myRoom.glb", scene).then((result) => {
+    models = ["estanteria.glb", "objetos en el suelo.glb", "escritorio.glb", "balda grande.glb", "comoda.glb", "armario.glb", "estanteria pie.glb",
+        "cama.glb", "estructura y muebles.glb", "baldas.glb"];
 
-        var cap = result.meshes[0];
-        //cap.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3);
+    loadModels(models);
 
-        cap.position = new BABYLON.Vector3(0, 0, 0);
-        cargado = true;
-    });
 
     return scene;
 
 }
 
+function loadModels(modelFiles) {
+
+    let contador = 0
+
+    modelFiles.forEach(function(file, index) {
+        BABYLON.SceneLoader.ImportMesh(
+            "",
+            "../assets/modelos/",
+            file,
+            scene,
+            function (meshes) {
+
+                loadedModels.push({ fileName: file, meshes: meshes });
+
+                contador++;
+                carga += 100 / modelFiles.length;
+
+                if(contador === 10)
+                    cargado = true;
+            }
+        );
+    });
+
+}
+
 const intervalID = setInterval(function(){
     if(cargado) {
-        engine.hideLoadingUI();
-        clearInterval(intervalID);
+        setTimeout(() => {
+            engine.hideLoadingUI();
+            clearInterval(intervalID);
+            clearInterval(cargaModelos);
+            }, 2000);
+
     }
 }, 1000);

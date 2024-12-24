@@ -35,7 +35,6 @@ BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
                 <span></span>
             </div>
         </div>
-        <h1 id="cargaTexto">LOADING</h1>
     `;
 	var customLoadingScreenCss = document.createElement('style');
 	customLoadingScreenCss.type = 'text/css';
@@ -43,7 +42,7 @@ BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
             @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
 
             #customLoadingScreenDiv{
-                background-color: #f1c40f;
+                background-color: orange;
                 color: white;
                 font-size:50px;
                 text-align:center;
@@ -314,6 +313,7 @@ BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
 			  }
 			}
             `;
+
 	document.getElementsByTagName('head')[0].appendChild(customLoadingScreenCss);
 	this._resizeLoadingUI();
 	window.addEventListener("resize", this._resizeLoadingUI);
