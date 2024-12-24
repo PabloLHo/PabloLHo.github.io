@@ -54,9 +54,9 @@ function loadModels(modelFiles) {
                 loadedModels.push({ fileName: file, meshes: meshes });
 
                 contador++;
-                carga += 100 / modelFiles.length;
+                carga += Math.floor(100 / modelFiles.length);
 
-                if(contador === 10)
+                if(contador === modelFiles.length)
                     cargado = true;
             }
         );
