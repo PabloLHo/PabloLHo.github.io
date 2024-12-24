@@ -46,7 +46,7 @@ function loadModels(modelFiles) {
     modelFiles.forEach(function(file, index) {
         BABYLON.SceneLoader.ImportMesh(
             "",
-            "../../assets/modelos/",
+            "./assets/modelos/",
             file,
             scene,
             function (meshes) {
