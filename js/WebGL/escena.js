@@ -43,7 +43,7 @@ function loadModels(modelFiles) {
     modelFiles.forEach(function(file, index) {
         BABYLON.SceneLoader.ImportMesh(
             "",
-            "https://github.com/PabloLHo/PabloLHo.github.io/blob/main/assets/modelos/",
+            "./assets/modelos/",
             file,
             scene,
             function (meshes) {
