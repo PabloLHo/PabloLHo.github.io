@@ -26,8 +26,11 @@ function Intro(){
 
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 
-    models = ["estanteria.glb", "objetos en el suelo.glb", "escritorio.glb", "balda grande.glb", "comoda.glb", "armario.glb", "estanteria pie.glb",
-        "cama.glb", "estructura y muebles.glb", "baldas.glb"];
+    // models = ["Estanteria.glb", "Objetos en el suelo.glb", "Escritorio.glb", "Balda grande.glb", "Comoda.glb", "Armario.glb", "Estanteria pie.glb",
+    //     "Cama.glb", "Estructura y muebles.glb", "Baldas.glb"];
+
+    models = ["Balda grande.glb", "Comoda.glb", "Armario.glb", "Estanteria pie.glb",
+        "Cama.glb", "Estructura y muebles.glb", "Baldas.glb"];
 
     loadModels(models);
 
