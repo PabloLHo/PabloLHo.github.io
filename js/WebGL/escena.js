@@ -2,6 +2,7 @@ var cargado = false;
 
 loadedModels = [];
 orderedModels = [];
+models = [];
 
 let positionX = 0; // Posición inicial del coche
 
@@ -34,39 +35,80 @@ function Intro(){
         "Objetos en el suelo.glb"];
 
 
-    loadModels(models);
+    loadModels(models).then(() => {
+        cargado = true;
+    });
 
 
     return scene;
 
 }
 
+// function loadModels(modelFiles) {
+//
+//     let contador = 0
+//
+//     modelFiles.forEach(function(file, index) {
+//         BABYLON.SceneLoader.ImportMesh(
+//             "",
+//             "./assets/modelos/",
+//             file,
+//             scene,
+//             function (meshes) {
+//
+//                 loadedModels.push({ fileName: file, meshes: meshes });
+//                 orderedModels.push(file);
+//
+//                 contador++;
+//                 carga += Math.floor(100 / modelFiles.length);
+//
+//                 if(contador === modelFiles.length) {
+//                     cargado = true;
+//                     carga = 100;
+//                 }
+//             }
+//         );
+//     });
+//
+// }
+
 function loadModels(modelFiles) {
+    let contador = 0;
+    const totalModelos = modelFiles.length;
+    const progressMap = {};
 
-    let contador = 0
-
-    modelFiles.forEach(function(file, index) {
-        BABYLON.SceneLoader.ImportMesh(
-            "",
-            "./assets/modelos/",
-            file,
-            scene,
-            function (meshes) {
-
-                loadedModels.push({ fileName: file, meshes: meshes });
-                orderedModels.push(file);
-
-                contador++;
-                carga += (100 / modelFiles.length).toFixed(2);
-
-                if(contador === modelFiles.length) {
-                    cargado = true;
-                    carga = 100;
+    // Crear una lista de promesas para controlar la carga de todos los modelos
+    const promises = modelFiles.map((file) => {
+        return BABYLON.SceneLoader.ImportMeshAsync("",  "./assets/modelos/",  file, scene,  function (evt) { // Evento onProgress para capturar el progreso de cada modelo
+                var loadedPercent = 0;
+                if (evt.lengthComputable) {
+                    loadedPercent = (evt.loaded * 100 / evt.total).toFixed();
+                } else {
+                    var dlCount = evt.loaded / (1024 * 1024);
+                    loadedPercent = Math.floor(dlCount * 100.0) / 100.0;
                 }
-            }
-        );
+                onProgress(file, loadedPercent);
+            }  // Escena actual
+        ).then((result) => {
+            // Guardar los modelos cargados para su uso posterior
+            loadedModels.push({ fileName: file, meshes: result.meshes });
+            orderedModels.push(file);
+
+            onProgress(file, 100);
+        });
     });
 
+    // Devolver una promesa que se resuelva cuando todos los modelos se hayan cargado
+    return Promise.all(promises);
+}
+
+const progressMap = {};
+const onProgress = (name, progress) => {
+    progressMap[name] = +progress;
+    const sum = Object.keys(progressMap).reduce((prev, curr) => {
+        return prev + progressMap[curr];
+    }, 0);
+    carga = Math.round(sum / models.length);
 }
 
 const intervalID = setInterval(function(){
