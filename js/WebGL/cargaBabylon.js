@@ -1,5 +1,6 @@
 const canvas = document.getElementById("renderCanvas");
 let carga = 0;
+let elegido = 0;
 
 htmlCarga = "";
 cssCarga = "";
@@ -22,9 +23,9 @@ const createDefaultEngine = function () {
 
 BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
 
-	let random = Math.floor(Math.random() * 3);
+	elegido = Math.floor(Math.random() * 3);
 
-	switch (random){
+	switch (elegido){
 		case 0:
 			runningMan();
 			break;
@@ -281,315 +282,325 @@ function runningMan(){
 	}
 
 	/* Back */
-.back {
-		bottom: 0;
-		right: -40%;
-		background: hsl(45, 100%, 45%) !important;
-	}
-
-.back.one {
-		width: 30%;
-		height: 8%;
-		animation: elem 2.6s linear infinite;
-	}
-
-.back.two {
-		width: 40%;
-		height: 16%;
-		animation: elem 3.3s linear infinite 1.6s;
-	}
-
-.back.three {
-		width: 7%;
-		height: 24%;
-		animation: elem 2.2s linear infinite 1s;
-	}
-
-.back.four {
-		width: 18%;
-		height: 13%;
-		animation: elem 2.8s linear infinite 0.2s;
-	}
-
-	/* Floor & grass */
-.floor {
-		width: 100%;
-		height: 4px;
-		bottom: 0;
-	}
-
-.floor .rock {
-		bottom: 0;
-		right: -20px;
-	}
-
-.floor .rock.one {
-		width: 16px;
-		height: 26px;
-		animation: elem 3s linear infinite;
-	}
-
-.floor .rock.two {
-		width: 20px;
-		height: 18px;
-		animation: elem 3s linear infinite 0.4s;
-	}
-
-.floor .rock.three {
-		width: 13px;
-		height: 26px;
-		animation: elem 3s linear infinite 1.3s;
-	}
-
-.floor .grass {
-		width: 2px;
-		bottom: 0;
-		right: -2px;
-	}
-
-.floor .grass.one {
-		height: 15px;
-		animation: elem 3s linear infinite;
-	}
-
-.floor .grass.two {
-		height: 10px;
-		animation: elem 3.3s linear infinite 0.2s;
-	}
-
-.floor .grass.three {
-		height: 18px;
-		animation: elem 2.5s linear infinite 0.4s;
-	}
-
-.floor .grass.four {
-		height: 5px;
-		animation: elem 2.9s linear infinite 0.6s;
-	}
-
-.floor .grass.five {
-		height: 7px;
-		animation: elem 3s linear infinite 0.8s;
-	}
-
-.floor .grass.six {
-		height: 10px;
-		animation: elem 3.1s linear infinite 1s;
-	}
-
-.floor .grass.seven {
-		height: 4px;
-		animation: elem 3s linear infinite 1.2s;
-	}
-
-.floor .grass.eight {
-		height: 7px;
-		animation: elem 3s linear infinite 1.4s;
-	}
-
-.floor .grass.nine {
-		height: 10px;
-		animation: elem 3.1s linear infinite 1.6s;
-	}
-
-.floor .grass.ten {
-		height: 6px;
-		animation: elem 3s linear infinite 1.8s;
-	}
-
-	/* Cloud */
-.cloud {
-		height: 20px;
-		right: -160px;
-		background: hsla(0, 0%, 100%, 0.3) !important;
-	}
-
-.cloud::before,
-.cloud::after {
-		background: hsla(0, 0%, 100%, 0.3) !important;
-	}
-
-.cloud::before {
-		width: 80%;
-		height: 50%;
-		bottom: -25%;
-		left: -20%;
-	}
-
-.cloud::after {
-		width: 60%;
-		height: 30%;
-		top: -15%;
-		right: -10%;
-	}
-
-.cloud.one {
-		width: 100px;
-		top: 60px;
-		animation: cloud 3s linear infinite;
-	}
-
-.cloud.two {
-		width: 80px;
-		top: 20px;
-		animation: cloud 2.6s linear infinite 0.5s;
-	}
-
-.cloud.three {
-		width: 130px;
-		top: 110px;
-		animation: cloud 3.2s linear infinite 1s;
-	}
-
-	/* Stickman */
-.stick {
-		width: 6px;
-		height: 30px;
-		bottom: 30px;
-		left: 50%;
-		background: black;
-		border-radius: 3px;
-		animation: stick 3s ease-in-out infinite;
-	}
-
-.stick div {
-		transform-origin: 50% 0%;
-	}
-
-.stick .left {
-		z-index: -1;
-	}
-
-.stick .right {
-		z-index: 1;
-	}
-
-.stick .head {
-		width: 12px;
-		height: 12px;
-		background: black;
-		border-radius: 50%;
-		transform: translate(-3px, -14px);
-	}
-
-.stick .arm {
-		width: 4px;
-		height: 14px;
-		top: 1px;
-		left: 1px;
-	}
-
-.stick .arm .bottom {
-		width: 4px;
-		height: 12px;
-		bottom: -10px;
-	}
-
-.stick .leg {
-		width: 4px;
-		height: 20px;
-		bottom: -19px;
-		left: 1px;
-	}
-
-.stick .leg .bottom {
-		width: 4px;
-		height: 15px;
-		bottom: -13px;
-	}
-
-	/* Stickman arms/legs animations */
-.arm.left {
-		animation: run 0.8s linear infinite;
-	}
-
-.arm.left .bottom {
-		animation: arm-bottom 0.4s linear infinite;
-	}
-
-.arm.right {
-		animation: run 0.8s linear infinite 0.4s;
-	}
-
-.arm.right .bottom {
-		animation: arm-bottom 0.4s linear infinite 0.4s;
-	}
-
-.leg.left {
-		animation: run 0.4s linear infinite;
-	}
-
-.leg.left .bottom {
-		animation: leg-bottom 0.4s linear infinite;
-	}
-
-.leg.right {
-		animation: run 0.4s linear infinite 0.2s;
-	}
-
-.leg.right .bottom {
-		animation: leg-bottom 0.4s linear infinite 0.2s;
-	}
-
-	/* Keyframes */
-@keyframes cloud {
-		0% {
-			transform: translateX(0);
+	.back {
+			bottom: 0;
+			right: -40%;
+			background: hsl(45, 100%, 45%) !important;
 		}
-		100% {
-			transform: translateX(-760px);
-	}
-	}
-
-@keyframes elem {
-		0% {
-			transform: translateX(0);
+	
+	.back.one {
+			width: 30%;
+			height: 8%;
+			animation: elem 2.6s linear infinite;
 		}
-		100% {
-			transform: translateX(-640px);
+	
+	.back.two {
+			width: 40%;
+			height: 16%;
+			animation: elem 3.3s linear infinite 1.6s;
+		}
+	
+	.back.three {
+			width: 7%;
+			height: 24%;
+			animation: elem 2.2s linear infinite 1s;
+		}
+	
+	.back.four {
+			width: 18%;
+			height: 13%;
+			animation: elem 2.8s linear infinite 0.2s;
+		}
+	
+		/* Floor & grass */
+	.floor {
+			width: 100%;
+			height: 4px;
+			bottom: 0;
+		}
+	
+	.floor .rock {
+			bottom: 0;
+			right: -20px;
+		}
+	
+	.floor .rock.one {
+			width: 16px;
+			height: 26px;
+			animation: elem 3s linear infinite;
+		}
+	
+	.floor .rock.two {
+			width: 20px;
+			height: 18px;
+			animation: elem 3s linear infinite 0.4s;
+		}
+	
+	.floor .rock.three {
+			width: 13px;
+			height: 26px;
+			animation: elem 3s linear infinite 1.3s;
+		}
+	
+	.floor .grass {
+			width: 2px;
+			bottom: 0;
+			right: -2px;
+		}
+	
+	.floor .grass.one {
+			height: 15px;
+			animation: elem 3s linear infinite;
+		}
+	
+	.floor .grass.two {
+			height: 10px;
+			animation: elem 3.3s linear infinite 0.2s;
+		}
+	
+	.floor .grass.three {
+			height: 18px;
+			animation: elem 2.5s linear infinite 0.4s;
+		}
+	
+	.floor .grass.four {
+			height: 5px;
+			animation: elem 2.9s linear infinite 0.6s;
+		}
+	
+	.floor .grass.five {
+			height: 7px;
+			animation: elem 3s linear infinite 0.8s;
+		}
+	
+	.floor .grass.six {
+			height: 10px;
+			animation: elem 3.1s linear infinite 1s;
+		}
+	
+	.floor .grass.seven {
+			height: 4px;
+			animation: elem 3s linear infinite 1.2s;
+		}
+	
+	.floor .grass.eight {
+			height: 7px;
+			animation: elem 3s linear infinite 1.4s;
+		}
+	
+	.floor .grass.nine {
+			height: 10px;
+			animation: elem 3.1s linear infinite 1.6s;
+		}
+	
+	.floor .grass.ten {
+			height: 6px;
+			animation: elem 3s linear infinite 1.8s;
+		}
+	
+		/* Cloud */
+	.cloud {
+			height: 20px;
+			right: -160px;
+			background: hsla(0, 0%, 100%, 0.3) !important;
+		}
+	
+	.cloud::before,
+	.cloud::after {
+			background: hsla(0, 0%, 100%, 0.3) !important;
+		}
+	
+	.cloud::before {
+			width: 80%;
+			height: 50%;
+			bottom: -25%;
+			left: -20%;
+		}
+	
+	.cloud::after {
+			width: 60%;
+			height: 30%;
+			top: -15%;
+			right: -10%;
+		}
+	
+	.cloud.one {
+			width: 100px;
+			top: 60px;
+			animation: cloud 3s linear infinite;
+		}
+	
+	.cloud.two {
+			width: 80px;
+			top: 20px;
+			animation: cloud 2.6s linear infinite 0.5s;
+		}
+	
+	.cloud.three {
+			width: 130px;
+			top: 110px;
+			animation: cloud 3.2s linear infinite 1s;
+		}
+	
+		/* Stickman */
+	.stick {
+			width: 6px;
+			height: 30px;
+			bottom: 30px;
+			left: 50%;
+			background: black;
+			border-radius: 3px;
+			animation: stick 3s ease-in-out infinite;
+		}
+	
+	.stick div {
+			transform-origin: 50% 0%;
+		}
+	
+	.stick .left {
+			z-index: -1;
+		}
+	
+	.stick .right {
+			z-index: 1;
+		}
+	
+	.stick .head {
+			width: 12px;
+			height: 12px;
+			background: black;
+			border-radius: 50%;
+			transform: translate(-3px, -14px);
+		}
+	
+	.stick .arm {
+			width: 4px;
+			height: 14px;
+			top: 1px;
+			left: 1px;
+		}
+	
+	.stick .arm .bottom {
+			width: 4px;
+			height: 12px;
+			bottom: -10px;
+		}
+	
+	.stick .leg {
+			width: 4px;
+			height: 20px;
+			bottom: -19px;
+			left: 1px;
+		}
+	
+	.stick .leg .bottom {
+			width: 4px;
+			height: 15px;
+			bottom: -13px;
+		}
+	
+		/* Stickman arms/legs animations */
+	.arm.left {
+			animation: run 0.8s linear infinite;
+		}
+	
+	.arm.left .bottom {
+			animation: arm-bottom 0.4s linear infinite;
+		}
+	
+	.arm.right {
+			animation: run 0.8s linear infinite 0.4s;
+		}
+	
+	.arm.right .bottom {
+			animation: arm-bottom 0.4s linear infinite 0.4s;
+		}
+	
+	.leg.left {
+			animation: run 0.4s linear infinite;
+		}
+	
+	.leg.left .bottom {
+			animation: leg-bottom 0.4s linear infinite;
+		}
+	
+	.leg.right {
+			animation: run 0.4s linear infinite 0.2s;
+		}
+	
+	.leg.right .bottom {
+			animation: leg-bottom 0.4s linear infinite 0.2s;
+		}
+		
+	.stick.moving {
+	  animation: moveRight 1.5s linear infinite; /* Movimiento indefinido hacia la derecha */
 	}
+	
+	@keyframes moveRight {
+	  to {
+		transform: translateX(100vw); /* Mover el stickman hacia la derecha del viewport */
+	  }
 	}
-
-@keyframes stick {
-		0%, 100% {
-			transform: translateX(0px);
-	}
-		30% {
-			transform: translateX(-60px);
-	}
-		70% {
-			transform: translateX(20px);
-	}
-	}
-
-@keyframes run {
-		0%, 50%, 100% {
-			transform: rotate(0deg);
-	}
-		25% {
-			transform: rotate(60deg);
-	}
-		75% {
-			transform: rotate(-60deg);
-	}
-	}
-
-@keyframes arm-bottom {
-		0%, 100% {
-			transform: rotate(0deg);
-	}
-		50% {
-			transform: rotate(-90deg);
-	}
-	}
-
-@keyframes leg-bottom {
-		0%, 100% {
-			transform: rotate(0deg);
-	}
-		50% {
-			transform: rotate(120deg);
-	}
+	
+		/* Keyframes */
+	@keyframes cloud {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-760px);
+		}
+		}
+	
+	@keyframes elem {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-640px);
+		}
+		}
+	
+	@keyframes stick {
+			0%, 100% {
+				transform: translateX(0px);
+		}
+			30% {
+				transform: translateX(-60px);
+		}
+			70% {
+				transform: translateX(20px);
+		}
+		}
+	
+	@keyframes run {
+			0%, 50%, 100% {
+				transform: rotate(0deg);
+		}
+			25% {
+				transform: rotate(60deg);
+		}
+			75% {
+				transform: rotate(-60deg);
+		}
+		}
+	
+	@keyframes arm-bottom {
+			0%, 100% {
+				transform: rotate(0deg);
+		}
+			50% {
+				transform: rotate(-90deg);
+		}
+		}
+	
+	@keyframes leg-bottom {
+			0%, 100% {
+				transform: rotate(0deg);
+		}
+			50% {
+				transform: rotate(120deg);
+		}
 	}`;
 }
 
@@ -1200,6 +1211,20 @@ function bb8(){
 		transform: translateX(-20px);
 	  }
 	}
+	
+	.bb8-center.moving {
+	  transform: translateX(0); /* Asegurar que comience desde la posición original */
+	}
+	
+	.bb8-base.moving {
+	  animation: none; /* Desactivar las animaciones actuales */
+	  transform: translateX(0); /* Asegurar que comience desde la posición original */
+	}
+	
+	/* Movimiento hacia la derecha de forma indefinida */
+
+	
+
 	`;
 }
 
@@ -1601,27 +1626,6 @@ function formula1(){
 	  animation-iteration-count: infinite;
 	}
 	
-	@keyframes dots-animation1 {
-	  0% { opacity: 0; }
-	  25% { opacity: 0; }
-	  26% { opacity: 1; }
-	  100% { opacity: 1; }
-	}
-	
-	@keyframes dots-animation2 {
-	  0% { opacity: 0; }
-	  50% { opacity: 0; }
-	  51% { opacity: 1; }
-	  100% { opacity: 1; }
-	}
-	
-	@keyframes dots-animation3 {
-	  0% { opacity: 0; }
-	  75% { opacity: 0; }
-	  76% { opacity: 1; }
-	  100% { opacity: 1; }
-	}
-	
 	/* on the svg element set up a default value for the --stroke-dash and --stroke-dash-negative attributes
 	46 roughly being the length of the longest path.air
 	*/
@@ -1635,6 +1639,11 @@ function formula1(){
 	g#car {
 	  transform: translateX(-3px);
 	  animation: translate 2s ease-in-out infinite;
+	}
+	
+	g#car.moving {
+	  animation: none; /* Desactivamos la animación de balanceo */
+	  transform: translateX(0); /* Aseguramos que comienza desde su posición original */
 	}
 	/* animate the shadow to skew  toward the left */
 	path#shadow {
