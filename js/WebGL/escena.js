@@ -1,6 +1,9 @@
 var cargado = false;
 
 loadedModels = [];
+orderedModels = [];
+
+let positionX = 0; // Posición inicial del coche
 
 function Intro(){
 
@@ -26,11 +29,10 @@ function Intro(){
 
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0));
 
-    // models = ["Estanteria.glb", "Objetos en el suelo.glb", "Escritorio.glb", "Balda grande.glb", "Comoda.glb", "Armario.glb", "Estanteria pie.glb",
-    //     "Cama.glb", "Estructura y muebles.glb", "Baldas.glb"];
+    models = ["Estanteria_1.glb", "Balda grande.glb", "Comoda.glb", "Estanteria_3.glb", "Armario.glb", "Estanteria_4.glb", "Estanteria pie.glb", "Cama.glb", "Zapatillas asfalto.glb",
+        "Estructura y muebles.glb", "Bateria externa.glb", "Escritorio.glb", "Estanteria_2.glb", "Zapatillas trail.glb", "Mochila.glb", "Baldas.glb", "Pila de papeles.glb",
+        "Objetos en el suelo.glb"];
 
-    models = ["Balda grande.glb", "Comoda.glb", "Armario.glb", "Estanteria pie.glb",
-        "Cama.glb", "Estructura y muebles.glb", "Baldas.glb"];
 
     loadModels(models);
 
@@ -52,12 +54,15 @@ function loadModels(modelFiles) {
             function (meshes) {
 
                 loadedModels.push({ fileName: file, meshes: meshes });
+                orderedModels.push(file);
 
                 contador++;
-                carga += Math.floor(100 / modelFiles.length);
+                carga += (100 / modelFiles.length).toFixed(2);
 
-                if(contador === modelFiles.length)
+                if(contador === modelFiles.length) {
                     cargado = true;
+                    carga = 100;
+                }
             }
         );
     });
@@ -66,11 +71,45 @@ function loadModels(modelFiles) {
 
 const intervalID = setInterval(function(){
     if(cargado) {
+        switch (elegido){
+            case 0:
+                const stickman = document.querySelector(".stick");
+                stickman.classList.add("moving");
+
+                break;
+            case 1:
+                const bb8 = document.querySelector(".bb8-center");
+                const bb8_2 = document.querySelector(".bb8-base");
+                bb8.classList.add("moving"); // Añadir clase 'moving' para que el androide avance
+                bb8_2.classList.add("moving");
+                moveRight()
+                // Función que añade la clase 'moving' y activa el movimiento a la derecha
+                function moveRight() {
+                    positionX += 0.3; // Incrementa la posición X para mover el coche hacia la derecha
+                    bb8.style.transform = `translateX(${positionX}px)`; // Aplica la nueva posición X
+                    bb8_2.style.transform = `translateX(${positionX * 22}px)`;
+                    requestAnimationFrame(moveRight);
+                }
+                break;
+            case 2:
+                const car = document.querySelector("g#car");
+                car.classList.add('moving');
+                moveCar();
+                function moveCar() {
+                    positionX += 5; // Incrementa la posición X para mover el coche hacia la derecha
+                    car.style.transform = `translateX(${positionX}px)`; // Aplica la nueva posición X
+
+                    // Llama a la función nuevamente en el siguiente frame de la animación
+                    requestAnimationFrame(moveCar);
+                }
+                break;
+        }
+
         setTimeout(() => {
             engine.hideLoadingUI();
             clearInterval(intervalID);
             clearInterval(cargaModelos);
-            }, 2000);
+            }, 1200);
 
     }
 }, 1000);
