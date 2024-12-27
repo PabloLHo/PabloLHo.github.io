@@ -15,6 +15,8 @@ var scene = null;
 var sceneToRender = null;
 var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
 
+
+
 BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
 
 	this._loadingDiv = document.createElement("div");
@@ -321,6 +323,7 @@ BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
 };
 
 BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function(){
+	audio.stop();
 	document.getElementById("customLoadingScreenDiv").style.display = "none";
 	console.log("scene is now loaded");
 }
@@ -328,8 +331,15 @@ BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function(){
 var createScene = function () {
 
 	engine.displayLoadingUI();
+
+
 	// This creates a basic Babylon Scene object (non-mesh)
 	var scene = new BABYLON.Scene(engine);
+
+	var audio = new BABYLON.Sound("cargando", "./assets/Intro.mp4", scene, null, {
+		loop: true,   // Hacer que el audio se repita mientras la escena se carga
+		autoplay: true // Reproducir inmediatamente
+	});
 
 	// This creates and positions a free camera (non-mesh)
 	var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
