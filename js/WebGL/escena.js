@@ -18,6 +18,10 @@ var minX = -2.5, maxX = -1.75;
 var minZ = -0.5, maxZ = 5.5;
 var minY = 2.2, maxY = 4;
 
+var giroSilla = 0.002;
+var angle;
+var chairMovement = true;
+
 function habitacion(){
 
     engine.displayLoadingUI();
@@ -43,6 +47,7 @@ function habitacion(){
     camera.panningDistanceLimit = 3;
 
     cameraPasillo = new BABYLON.UniversalCamera("cameraPasillo", new BABYLON.Vector3(-2,2.2,2.5));
+    cameraLibre = new BABYLON.UniversalCamera("cameraPasillo", new BABYLON.Vector3(-2,2.2,2.5));
 
     scene.activeCamera = camera;
 
@@ -55,19 +60,28 @@ function habitacion(){
         if(clicable) {
             const ray = scene.createPickingRay(scene.pointerX, scene.pointerY);
             const raycastHit = scene.pickWithRay(ray);
-            if (raycastHit.pickedMesh) {
+            if (raycastHit.pickedMesh && !raycastHit.pickedMesh.name.includes("Habitacion")) {
                 if (ultimaSeleccion) {
-                    highlightLayer.removeMesh(ultimaSeleccion);
+                    highlightLayer.removeAllMeshes();
                 }else
                     crearTabSeleccion();
                 if (raycastHit.pickedMesh !== ultimaSeleccion) {
                     highlightLayer.addMesh(raycastHit.pickedMesh, new BABYLON.Color3.Green());
+                    if(raycastHit.pickedMesh.name.includes("primitive")){
+                        nombre = raycastHit.pickedMesh.name.split("_")[1];
+                        scene.meshes.forEach(function (mesh) {
+                            if(mesh.name.includes(nombre))
+                                highlightLayer.addMesh(mesh, new BABYLON.Color3.Green());
+                        });
+                    }
                     ultimaSeleccion = raycastHit.pickedMesh;
-                } else
+                } else {
                     ultimaSeleccion = null;
+                    eliminarTabSeleccion();
+                }
             } else {
                 if (ultimaSeleccion) {
-                    highlightLayer.removeMesh(ultimaSeleccion);
+                    highlightLayer.removeAllMeshes();
                     ultimaSeleccion = null;
                     eliminarTabSeleccion();
                 }
@@ -76,42 +90,8 @@ function habitacion(){
     }
 
     scene.onBeforeRenderObservable.add(function() {
-        var actualY = cameraPasillo.position.y;
-        var actualX = cameraPasillo.position.x;
-        var actualZ = cameraPasillo.position.z;
-        // Limitar la posición X
-        if (cameraPasillo.position.x < minX) {
-            cameraPasillo.position.x = minX;
-            cameraPasillo.position.y = actualY;
-            cameraPasillo.position.z = actualZ;
-        }
-        if (cameraPasillo.position.x > maxX) {
-            cameraPasillo.position.x = maxX;
-            cameraPasillo.position.y = actualY;
-            cameraPasillo.position.z = actualZ;
-        }
-
-        // Limitar la posición Z
-        if (cameraPasillo.position.z < minZ) {
-            cameraPasillo.position.z = minZ;
-            cameraPasillo.position.y = actualY;
-            cameraPasillo.position.x = actualX;
-
-        }
-        if (cameraPasillo.position.z > maxZ) {
-            cameraPasillo.position.z = maxZ;
-            cameraPasillo.position.y = actualY;
-            cameraPasillo.position.x = actualX;
-        }
-        // Limitar la posición Z
-        if (cameraPasillo.position.y < minY) {
-            cameraPasillo.position.y = minY;
-        }
-        if (cameraPasillo.position.y > maxY) {
-            cameraPasillo.position.y = maxY;
-        }
-
-
+        limitarCamara(cameraPasillo);
+        limitarCamara(cameraLibre);
     });
 
     window.addEventListener("keydown", function (event) {
@@ -125,25 +105,75 @@ function habitacion(){
         }
     });
 
-    //models = ["Estanteria_1.glb", "Balda grande.glb", "Comoda.glb", "Estanteria_3.glb", "Armario.glb", "Estanteria_4.glb", "Estanteria pie.glb", "Cama.glb", "Zapatillas asfalto.glb",
-      //  "Estructura y muebles.glb", "Bateria externa.glb", "Escritorio.glb", "Estanteria_2.glb", "Zapatillas trail.glb", "Mochila.glb", "Baldas.glb", "Pila de papeles.glb",
-        //"Objetos en el suelo.glb"];
+    readModelsPath().then(models => {
+        loadModels(models).then(() => {
+            cargado = true;
+            angle = 0;
+            scene.registerBeforeRender(function(){
 
-    models = ["Estructura y muebles.glb"];
+                if(chairMovement) {
+                    var mesh = scene.getMeshByName("Habitacion_Silla gaming_primitive2");
+                    var mesh2 = scene.getMeshByName("Habitacion_Silla gaming_primitive3");
+                    var mesh3 = scene.getMeshByName("Habitacion_Silla gaming_primitive0");
 
+                    mesh.rotation.y = angle;
+                    mesh2.rotation.y = angle;
+                    mesh3.rotation.y = angle;
 
-    loadModels(models).then(() => {
-        cargado = true;
+                    angle += giroSilla;
+
+                    if (angle >= Math.PI / 3 || angle <= -Math.PI / 6)
+                        giroSilla *= -1;
+                }
+            });
+        });
     });
-
 
     return scene;
 
 }
 
+function limitarCamara(camara){
+    var actualY = camara.position.y;
+    var actualX = camara.position.x;
+    var actualZ = camara.position.z;
+
+    // Limitar la posición X
+    if (camara.position.x < minX) {
+        camara.position.x = minX + 0.01;
+        camara.position.y = actualY;
+        camara.position.z = actualZ;
+    }
+    if (camara.position.x > maxX) {
+        camara.position.x = maxX - 0.01;
+        camara.position.y = actualY;
+        camara.position.z = actualZ;
+    }
+
+    // Limitar la posición Z
+    if (camara.position.z < minZ) {
+        camara.position.z = minZ + 0.01;
+        camara.position.y = actualY;
+        camara.position.x = actualX;
+
+    }
+    if (camara.position.z > maxZ) {
+        camara.position.z = maxZ - 0.01;
+        camara.position.y = actualY;
+        camara.position.x = actualX;
+    }
+    // Limitar la posición Z
+    if (camara.position.y < minY) {
+        camara.position.y = minY + 0.01;
+    }
+    if (camara.position.y > maxY) {
+        camara.position.y = maxY - 0.01;
+    }
+}
+
 
 function loadModels(modelFiles) {
-
+    models = modelFiles;
     // Crear una lista de promesas para controlar la carga de todos los modelos
     const promises = modelFiles.map((file) => {
         return BABYLON.SceneLoader.ImportMeshAsync("",  "./assets/modelos/",  file, scene,  function (evt) { // Evento onProgress para capturar el progreso de cada modelo
@@ -160,13 +190,19 @@ function loadModels(modelFiles) {
             // Guardar los modelos cargados para su uso posterior
             loadedModels.push({ fileName: file, meshes: result.meshes });
             orderedModels.push(file);
-
             onProgress(file, 100);
         });
     });
 
     // Devolver una promesa que se resuelva cuando todos los modelos se hayan cargado
     return Promise.all(promises);
+}
+
+async function readModelsPath(){
+    const response = await fetch("./assets/rutas.txt");
+    const texto = await response.text();
+    // Dividimos el contenido por líneas para obtener cada ruta
+    return rutas = texto.split(',').map(linea => linea.trim()).filter(Boolean);
 }
 
 const progressMap = {};
