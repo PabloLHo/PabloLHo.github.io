@@ -45,6 +45,8 @@ function habitacion(){
     camera.angularSensibilityX = 5000;
     camera.angularSensibilityY = 5000;
 
+    camera.wheelPrecision = 75;
+
     camera.panningDistanceLimit = 3;
 
     cameraPasillo = new BABYLON.UniversalCamera("cameraPasillo", new BABYLON.Vector3(-2,2.2,2.5));

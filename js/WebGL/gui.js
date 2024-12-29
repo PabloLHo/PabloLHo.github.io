@@ -174,18 +174,29 @@ function aislarObjeto(){
 		if (pos._x > -2)
 			ubi_x = -3;
 
-		cameraPasillo.setTarget(new BABYLON.Vector3(ubi_x, pos._y, pos._z));
-		cameraPasillo.position = new BABYLON.Vector3(pos._x + ubi_x, pos._y, pos._z);
+		cameraPasillo = new BABYLON.UniversalCamera("cameraPasillo", new BABYLON.Vector3(pos._x + ubi_x, pos._y, pos._z));
+		cameraPasillo.setTarget(pos);
+		cameraPasillo.speed = 0.05;
+		cameraPasillo.angularSensibility = 10000;
+		cameraPasillo.ellipsoid = new BABYLON.Vector3(0.2, 0.5, 0.2);
+		cameraPasillo.attachControl(canvas, true);
+		scene.activeCamera = cameraPasillo;
 
 		scene.activeCamera = cameraPasillo;
 		scene.clearColor = new BABYLON.Color3(0,0,0);
+
 		var folder = gui.__folders["Scene interaction"];
 		folder.remove(folder.__controllers[folder.__controllers.length - 1]);
 		folder.__controllers[folder.__controllers.length - 1].name("Aislar objeto");
 
-		highlightLayer.addMesh(ultimaSeleccion, new BABYLON.Color3.Green());
+		nombre = ultimaSeleccion.name.split("_")[1];
+		scene.meshes.forEach(function (mesh) {
+			if(mesh.name.includes(nombre))
+				highlightLayer.addMesh(mesh, new BABYLON.Color3.Green());
+		});
 
 	}else{
+
 		scene.clearColor = new BABYLON.Color3(1,1,1);
 		var folder = gui.__folders["Scene interaction"];
 		folder.__controllers[folder.__controllers.length - 1].name("Volver a la escena");
@@ -213,10 +224,12 @@ function aislarObjeto(){
 		objectCamera.attachControl(canvas, true);
 
 		objectCamera.upperRadiusLimit = 5;
-		objectCamera.lowerRadiusLimit = 1.2;
+		objectCamera.lowerRadiusLimit = 1.5;
 
 		objectCamera.angularSensibilityX = 5000;
 		objectCamera.angularSensibilityY = 5000;
+
+		objectCamera.wheelPrecision = 75;
 
 		scene.activeCamera = objectCamera;
 
@@ -244,6 +257,8 @@ function cambioCamara(){
 
 			camera.angularSensibilityX = 5000;
 			camera.angularSensibilityY = 5000;
+
+			camera.wheelPrecision = 75;
 
 			camera.panningDistanceLimit = 3;
 			scene.activeCamera = camera;
