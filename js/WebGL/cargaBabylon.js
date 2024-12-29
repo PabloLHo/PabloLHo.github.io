@@ -18,7 +18,7 @@ let scene = null;
 let sceneToRender = null;
 
 const createDefaultEngine = function () {
-	return new BABYLON.Engine(canvas, true, {preserveDrawingBuffer: true, stencil: true, disableWebGL2Support: false});
+	return new BABYLON.Engine(canvas, true, {preserveDrawingBuffer: true, stencil: true, disableWebGL2Support: true});
 };
 
 BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
